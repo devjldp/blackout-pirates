@@ -1,0 +1,47 @@
+{% load static %} 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% block meta %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% endblock %}
+
+  {% block core_css%}
+  {% endblock %}
+  <title>Blackout Pirates</title>
+</head>
+<body>
+  <header>
+    <!--logo and navigation-->
+    <a href="index.html">
+        <h2 id="logo">Black Out Pirates</h2>
+    </a>
+    <nav>
+        <ul id="menu">
+            <li>
+                <a href="index.html" class="active">Home</a>
+            </li>
+            <li>
+                <a href="gallery.html">Sign up</a>
+            </li>
+            <li>
+                <a href="#">Log In</a>
+            </li>
+        </ul>
+    </nav>
+  </header>
+
+  {% block page_header %}
+  {% endblock %}
+
+  {% block content %}
+  {% endblock %}
+
+  
+  <footer>
+
+    </footer>
+</body>
+</html>
