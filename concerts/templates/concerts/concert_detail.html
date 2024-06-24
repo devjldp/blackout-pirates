@@ -11,6 +11,15 @@
     <p>{{concert.city}}</p>
     <p>{{concert.date}}</p>
     <p>Price: £ 500 </p>
-  <a href="{% url 'concerts' %}">Go back</a>
+    <a href="{% url 'concerts' %}">Go back</a>
+    
+    <form action="{% url 'add_to_basket' concert.id %}" method="POST">
+      {% csrf_token %}  {% comment %}  Because we use POST {% endcomment %}
+      <label>Quantity:</label>
+      <input type="number" name="quantity" min="1" max="99" value = "1" data-concert_id = "{{ concert.id }}" id = "id_qty_{{ concert.id}}">
+      <input type="submit" value = "Buy it" />
+      <input type"hidden" name="redirect_url" value="{{ request.path }}" />"
+    </form>  
+
 </body>
 </html>
