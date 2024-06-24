@@ -1,0 +1,50 @@
+[
+  {
+    "pk": 1,
+    "model": "concerts.concert",
+    "fields":{
+      "city": "New York",
+      "date": "2025-01-15"
+      }
+  },
+  {
+    "pk": 2,
+    "model": "concerts.concert",
+    "fields":{
+      "city": "Los Angeles",
+      "date": "2025-02-20"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "concerts.concert",
+    "fields":{
+      "city": "Chicago",
+      "date": "2025-03-10"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "concerts.concert",
+    "fields":{
+      "city": "Houston",
+      "date": "2025-04-25"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "concerts.concert",
+    "fields":{
+      "city": "Phoenix",
+      "date": "2025-05-30"
+    }
+  },
+  {
+    "pk": 6,
+    "model": "concerts.concert",
+    "fields":{
+      "city": "Philadelphia",
+      "date": "2025-06-18"
+    }
+  }
+]
