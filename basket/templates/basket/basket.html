@@ -7,8 +7,8 @@
 </head>
 <body>
   
-  {% if bag_items %}
-  
+  {% if basket_tickets %}
+    {{ basket_tickets }}
   {% else %}
     <p>Your basket is empty!!</p>
     <a href='{% url "concerts" %}'> View concerts</a>
