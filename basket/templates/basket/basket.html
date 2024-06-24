@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test</title>
+</head>
+<body>
+  
+  {% if bag_items %}
+  
+  {% else %}
+    <p>Your basket is empty!!</p>
+    <a href='{% url "concerts" %}'> View concerts</a>
+  
+  {% endif %}
+</body>
+</html>
