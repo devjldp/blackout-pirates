@@ -21,7 +21,6 @@ if os.path.isfile('env.py'):
     import env
 
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -46,9 +45,11 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'allauth',
     'allauth.account',
-    'allauth.socialaccount',  # Optional -- requires install using `django-allauth[socialaccount]`.
+    # Optional -- requires install using `django-allauth[socialaccount]`.
+    'allauth.socialaccount',
     'home',
-    'concerts'
+    'concerts',
+    'basket'
 ]
 
 MIDDLEWARE = [
@@ -68,17 +69,17 @@ TEMPLATES = [
     {
         # Specifies the template backend to use. In this case, it's the Django template backend.
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        
+
         # Defines a list of directories where Django will search for additional templates.
         # `BASE_DIR` typically refers to the root directory of the project.
         'DIRS': [
             os.path.join(BASE_DIR, 'templates')
         ],
-        
+
         # When set to True, tells Django to look for templates inside a `templates` directory
         # in each installed application.
         'APP_DIRS': True,
-        
+
         # Additional options for the template backend.
         'OPTIONS': {
             # Context processors are functions that add variables to the context of a template.
@@ -115,11 +116,10 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
-#Spcify a login url
+# Spcify a login url
 LOGIN_URL = '/accounts/login/'
 # Specify a url to redirect back to after logging in
 LOGIN_REDIRECT_URL = '/'
-
 
 
 WSGI_APPLICATION = 'blackoutpirates.wsgi.application'
