@@ -7,12 +7,10 @@
 </head>
 <body>
   
-  {% for concert in concerts %}
+
     <p>{{concert.city}}</p>
     <p>{{concert.date}}</p>
-
-    <a href='{% url "concert_detail" concert.id %}'> View details</a>
-  
-  {% endfor %}
+    <p>Price: £ 500 </p>
+  <a href="{% url 'concerts' %}">Go back</a>
 </body>
 </html>

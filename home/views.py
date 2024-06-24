@@ -8,8 +8,10 @@ from concerts.models import Concert
 
 def index(request):
     """
-      A view to return the index page
+      A view to return the index page.
+      This view fetches all Concert objects from the database
+    and renders the 'home/index.html' template, passing the
+    concerts as context data.
     """
     concerts = Concert.objects.all()
-
     return render(request, 'home/index.html', {"concerts": concerts})
