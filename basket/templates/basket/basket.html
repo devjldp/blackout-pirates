@@ -1,4 +1,4 @@
-{% load custom_tags %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,10 +37,12 @@
           <td>{{ ticket.city}}</td>
           <td>{{  ticket.price }}</td>
           <td> {{ ticket.quantity}} </td>
-          <td> {{ ticket.price|multiply:ticket.quantity }} </td>
+          <td> {{ ticket.subtotal }} </td>
         </tr>
           
         {% endfor %}
+
+
           
 
 
@@ -48,7 +50,7 @@
       </table>
     </div> 
 
-
+    <h2>Total: {{grand_total}}</h2>
 
   {% else %}
     <p>Your basket is empty!!</p>

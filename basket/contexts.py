@@ -14,13 +14,15 @@ def basket_contents(request):
     for concert_id, quantity in basket.items():
         concert = get_object_or_404(Concert, pk = concert_id)
         total += quantity*concert.price # Sustituir por concert.price
+        subtotal = quantity * concert.price
         tickets_count += quantity
         basket_tickets.append({
             'concert_id': concert_id,
             'quantity': quantity,
             'city': concert.city,
-            'price':concert.price
-        })
+            'price':concert.price,
+            'subtotal': subtotal
+            })
     grand_total = total
     context = {
         "basket_tickets": basket_tickets,
