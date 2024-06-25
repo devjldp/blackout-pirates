@@ -10,7 +10,7 @@
 
     <p>{{concert.city}}</p>
     <p>{{concert.date}}</p>
-    <p>Price: £ 500 </p>
+    <p>Price: £ {{concert.price}} </p>
     <a href="{% url 'concerts' %}">Go back</a>
     
     <form action="{% url 'add_to_basket' concert.id %}" method="POST">

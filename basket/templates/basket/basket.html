@@ -1,3 +1,4 @@
+{% load custom_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +10,46 @@
   
   {% if basket_tickets %}
     {{ basket_tickets }}
+
+    
+    {% comment %} {% for ticket in basket_tickets %}
+      <p>
+        {{ticket.city}}
+
+      </p>
+      
+    {% endfor %} {% endcomment %}
+      
+
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>concert</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+          </tr>
+        </thead>
+        
+        {% for ticket in basket_tickets %}
+        <tr>
+          <td>{{ ticket.city}}</td>
+          <td>{{  ticket.price }}</td>
+          <td> {{ ticket.quantity}} </td>
+          <td> {{ ticket.price|multiply:ticket.quantity }} </td>
+        </tr>
+          
+        {% endfor %}
+          
+
+
+
+      </table>
+    </div> 
+
+
+
   {% else %}
     <p>Your basket is empty!!</p>
     <a href='{% url "concerts" %}'> View concerts</a>
