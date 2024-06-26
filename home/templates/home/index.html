@@ -1,14 +1,10 @@
 {% extends "base.html" %}
 
+
 {% block page_header %}
-
-<h1>BlackOut Pirates: Join the pirate life!</h1>
-
-
+  <h1>BlackOut Pirates: Join the pirate life!</h1>
 {% endblock %}
 
 {% block content %}
-  <h2>Upcoming concerts </h2>
-  <a href = {% url 'concerts' %}> buy tickest now!</a>
-
+  <a href = {% url 'concerts' %} class="btn-link"> buy tickest now!</a>
 {% endblock %}

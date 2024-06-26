@@ -1,0 +1,22 @@
+.concert-container {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.concert-main-info {
+    width: 60%;
+    font-size: 16pt;
+    text-align: center;
+}
+
+.concert-url {
+    width: 40%;
+    text-decoration: none;
+    color: rgb(227, 92, 30);
+    font-size: 16pt;
+    text-align: right;
+}

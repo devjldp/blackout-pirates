@@ -1,0 +1,35 @@
+.material-symbols-outlined {
+    font-size: 14pt;
+}
+
+#test {
+    color: blue
+}
+
+.user_input {
+    font-size: 17pt;
+    /* center input text*/
+    text-align: center !important;
+}
+
+.modify-qty {
+    background-color: #fafafa;
+    padding: 5px 10px;
+
+}
+
+
+#concert-container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+.concert-detail {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
