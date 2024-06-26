@@ -23,5 +23,5 @@ def add_to_basket(request, concert_id):
         basket[concert_id] = quantity
 
     request.session['basket'] = basket
-    print(request.session['basket'])
+    # print(request.session['basket'])
     return redirect(redirect_url)

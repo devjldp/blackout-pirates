@@ -11,6 +11,7 @@ def basket_contents(request):
     basket = request.session.get('basket', {})
 
     for concert_id, quantity in basket.items():
+        # get the concert using the primary key
         concert = get_object_or_404(Concert, pk=concert_id)
         total += quantity*concert.price  # Sustituir por concert.price
         subtotal = quantity * concert.price
