@@ -19,10 +19,35 @@
         </thead>
         {% for ticket in basket_tickets %}
         <tr>
-          <td>{{ ticket.city}}</td>
-          <td>{{  ticket.price }}</td>
-          <td> {{ ticket.quantity}} </td>
-          <td> {{ ticket.subtotal }} </td>
+          <td>
+            <p>{{ ticket.city}}</p>
+          </td>
+          <td>
+            <p>{{  ticket.price }}</p>
+          </td>
+          <td> 
+            <form action="" method="POST" action="">
+              {% csrf_token %}
+              <div>
+                <div>
+                  <div>
+                    <button>-</button>
+                  </div>
+                  <input type="number" name="quantity" value='{{ ticket.quantity}}' 
+                  min='1' max='99' 
+                  data-item_id='{{ticket.concert_id}}' 
+                  id="id_qty_{{ticket.concert_id}}">
+                  <div>
+                    <button>+</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+            
+          </td>
+          <td>
+            <p>{{ ticket.subtotal }} </p>
+          </td>
         </tr>    
         {% endfor %}
       </table>
