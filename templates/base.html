@@ -16,19 +16,19 @@
 <body>
   <header>
     <!--logo and navigation-->
-    <a href="index.html">
+    <a href={% url 'home' %}>
         <h2 id="logo">Black Out Pirates</h2>
     </a>
     <nav>
         <ul id="menu">
-            <li>
-                <a href="index.html" class="active">Home</a>
-            </li>
-            <li>
-                <a href="gallery.html">Sign up</a>
+             <li>
+                <a href="#">Sign up</a>
             </li>
             <li>
                 <a href="#">Log In</a>
+            </li>
+            <li>
+              <a href= {% url "view_basket" %} >Basket</a>
             </li>
         </ul>
     </nav>

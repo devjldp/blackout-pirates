@@ -2,10 +2,13 @@
 
 {% block page_header %}
 
+<h1>BlackOut Pirates: Join the pirate life!</h1>
 
-<h1>Upcoming concerts:</h1>
-  {% for concert in concerts %}
-    <p> {{concert.city}}  - {{ concert.date|date:"d/M/o"}} <button>Buy now!! </button> </p> 
-  {% endfor %}
+
+{% endblock %}
+
+{% block content %}
+  <h2>Upcoming concerts </h2>
+  <a href = {% url 'concerts' %}> buy tickest now!</a>
 
 {% endblock %}

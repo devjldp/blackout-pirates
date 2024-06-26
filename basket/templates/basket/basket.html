@@ -1,27 +1,13 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>test</title>
-</head>
-<body>
+{% extends "base.html" %}
   
-  {% if basket_tickets %}
-    {{ basket_tickets }}
+{% block page_header %}
+  
+{% endblock %}
 
-    
-    {% comment %} {% for ticket in basket_tickets %}
-      <p>
-        {{ticket.city}}
+{% block content %}
 
-      </p>
-      
-    {% endfor %} {% endcomment %}
-      
-
-    <div>
+{% if basket_tickets %}
+  <div>
       <table>
         <thead>
           <tr>
@@ -31,31 +17,20 @@
             <th>Subtotal</th>
           </tr>
         </thead>
-        
         {% for ticket in basket_tickets %}
         <tr>
           <td>{{ ticket.city}}</td>
           <td>{{  ticket.price }}</td>
           <td> {{ ticket.quantity}} </td>
           <td> {{ ticket.subtotal }} </td>
-        </tr>
-          
+        </tr>    
         {% endfor %}
-
-
-          
-
-
-
       </table>
+      <h2>Total: {{grand_total}}</h2>
     </div> 
-
-    <h2>Total: {{grand_total}}</h2>
-
-  {% else %}
+    {% else %}
     <p>Your basket is empty!!</p>
-    <a href='{% url "concerts" %}'> View concerts</a>
-  
-  {% endif %}
-</body>
-</html>
+    <a href='{% url "concerts" %}'> View concerts</a> 
+    {% endif %}
+
+{% endblock %}
