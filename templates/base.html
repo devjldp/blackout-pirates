@@ -3,32 +3,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {% block meta %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {% endblock %}
-
-  {% block core_css%}
+  {% block core_css %}
   {% endblock %}
   <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   <title>Blackout Pirates</title>
 </head>
-<body>
-  <header>
+<body> 
+  <header id='main-header'>
     <!--logo and navigation-->
-    <a href={% url 'home' %}>
-        <h2 id="logo">Black Out Pirates</h2>
+    <a href={% url 'home' %} id='logo' >
+        BlackOut Pirates
     </a>
-    <nav>
+    <nav id='nav-bar'>
         <ul id="menu">
              <li>
-                <a href="#">Sign up</a>
+                <a href="#" class='link-url'>Sign up</a>
             </li>
             <li>
-                <a href="#">Log In</a>
+                <a href="#" class='link-url'>Log In</a>
             </li>
             <li>
-              <a href= {% url "view_basket" %} >Basket</a>
+              <a href= {% url "view_basket" %} class='link-url'>Basket</a>
             </li>
         </ul>
     </nav>
@@ -42,8 +42,8 @@
 
   
   <footer>
-
-    </footer>
+    <p>&copy; 2024 Blackout Pirates &#9760;. Todos los derechos reservados.</p>
+  </footer>
 
     {% block scripts %}{% endblock %}
 </body>
