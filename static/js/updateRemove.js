@@ -1,6 +1,6 @@
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.update-link').forEach(function(link) {
-    link.addEventListener('click', function(e) {
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.update-link').forEach(function (link) {
+    link.addEventListener('click', function (e) {
       var form = link.previousElementSibling;
       if (form && form.classList.contains('update-form')) {
         form.submit();
@@ -10,9 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.remove-item').forEach(function(button) {
-    button.addEventListener('click', function(e) {
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.remove-item').forEach(function (button) {
+    button.addEventListener('click', function (e) {
       var csrfToken = "{{ csrf_token }}";
       var concertId = button.id.split('remove_')[1];
       var url = `/bag/remove/${concertId}`;
