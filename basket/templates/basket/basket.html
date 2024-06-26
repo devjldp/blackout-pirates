@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
   
 {% block page_header %}
   
@@ -26,7 +27,7 @@
             <p>{{  ticket.price }}</p>
           </td>
           <td> 
-            <form action="" method="POST" action="">
+            <form action="" method="POST" class="updated-form">
               {% csrf_token %}
               <div>
                 <div>
@@ -43,7 +44,8 @@
                 </div>
               </div>
             </form>
-            
+            <a href="" id="update_{{ticket.concert_id}}" class="updated-link"><small>Update</small></a>
+            <a href="" id="remove_{{ticket.concert_id}}" class="remove-item"><small>Remove</small></a>
           </td>
           <td>
             <p>{{ ticket.subtotal }} </p>
@@ -58,4 +60,10 @@
     <a href='{% url "concerts" %}'> View concerts</a> 
     {% endif %}
 
+{% endblock %}
+
+ <!-- Incluir el archivo JavaScript -->
+
+ {% block scripts %}
+    <script src="{% static 'js/updateRemove.js' %}"></script>
 {% endblock %}
