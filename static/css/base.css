@@ -1,3 +1,39 @@
+/* importing fonts  */
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap&family=IM+Fell+DW+Pica+SC&family=IM+Fell+DW+Pica:ital@0;1&family=Pirata+One&display=swap');
+
+
+
+/* font-text */
+
+.text-rock {
+  font-family: 'Rock Salt', cursive;
+  /* color: #fafafafa;
+  margin-left: 50px; */
+}
+
+.text-pirate {
+  font-family: 'Pirata One', cursive;
+  font-size: 18pt;
+  word-spacing: 15px;
+}
+
+/* font-sizes */
+.fs-14 {
+  font-size: 14pt
+}
+
+.fs-16 {
+  font-size: 16pt
+}
+
+.fs-18 {
+  font-size: 18pt
+}
+
+.fs-20 {
+  font-size: 20pt
+}
+
 body {
   color: #fafafa;
   background-color: #000000;
@@ -21,7 +57,7 @@ body {
   width: 35%;
   color: rgb(227, 92, 30);
   text-decoration: none;
-  font-size: 24pt;
+  font-size: 20pt;
   text-align: center;
   cursor: pointer;
 }
@@ -44,7 +80,6 @@ body {
 }
 
 .link-url {
-  font-size: 18pt;
   color: #fafafa;
   text-decoration: none;
 }

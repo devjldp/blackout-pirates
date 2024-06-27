@@ -2,9 +2,11 @@
 
 
 {% block page_header %}
-  <h1>BlackOut Pirates: Join the pirate life!</h1>
+  <h1 class="text-center">BlackOut Pirates: Join the pirate life!</h1>
 {% endblock %}
 
 {% block content %}
-  <a href = {% url 'concerts' %} class="btn-link"> buy tickest now!</a>
+<div class="text-center">
+  <a href = {% url 'concerts' %} class="btn-link text-center"> Buy tickest now!</a>
+</div>
 {% endblock %}

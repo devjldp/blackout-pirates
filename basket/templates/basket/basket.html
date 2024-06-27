@@ -19,6 +19,7 @@
           </tr>
         </thead>
         {% for ticket in basket_tickets %}
+        <p>ID: {{ticket.concert_id}}<p>
         <tr>
           <td>
             <p>{{ ticket.city}}</p>
@@ -59,7 +60,7 @@
     <p>Your basket is empty!!</p>
     <a href='{% url "concerts" %}'> View concerts</a> 
     {% endif %}
-
+    <a href="{% url 'concerts' %}" class= 'link-url'>Go To Concerts</a>
 {% endblock %}
 
  <!-- Incluir el archivo JavaScript -->

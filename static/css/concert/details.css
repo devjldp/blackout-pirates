@@ -1,9 +1,15 @@
-.material-symbols-outlined {
-    font-size: 14pt;
+#concert-container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
 }
 
-#test {
-    color: blue
+.concert-detail {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .user_input {
@@ -12,24 +18,41 @@
     text-align: center !important;
 }
 
+
+/* buttons  */
+
 .modify-qty {
-    background-color: #fafafa;
+    background-color: rgb(227, 92, 30);
     padding: 5px 10px;
-
 }
 
+.modify-qty:hover {
+    background-color: #fafafa;
+}
 
-#concert-container {
-    width: 80%;
-    margin: 0 auto;
+.material-symbols-outlined {
+    color: #000000;
+    font-size: 12pt !important;
+}
+
+.material-symbols-outlined:hover {
+    color: rgb(227, 92, 30);
+}
+
+.btn-buy {
+    text-decoration: none;
+    background-color: rgb(227, 92, 30);
+    color: #fafafa;
+    font-size: 16pt;
+    padding: 5px 10px;
+    border: 1px solid #fafafa;
+    border-radius: 10px;
     text-align: center;
+    cursor: pointer;
+    margin-top: 1vh;
 }
 
-
-.concert-detail {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+.btn-buy:hover {
+    background-color: #fafafa;
+    color: rgb(227, 92, 30);
 }
