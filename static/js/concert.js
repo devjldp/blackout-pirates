@@ -2,7 +2,6 @@ let btnRemove = document.getElementById('remove_quantity')
 let btnAdd = document.getElementById('add_quantity')
 let userInput = document.querySelector('.user_input')
 
-
 btnRemove.addEventListener('click', (event) => {
     event.preventDefault(); // Evita el comportamiento predeterminado del botón
     let quantity = parseInt(userInput.value)
@@ -18,3 +17,5 @@ btnAdd.addEventListener('click', (event) => {
     quantity += 1
     userInput.value = quantity
 })
+
+

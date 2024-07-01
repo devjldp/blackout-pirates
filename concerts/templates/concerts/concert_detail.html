@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block core_css %}
+{% block extra_css %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/concert/details.css' %}" >
 {% endblock %}
 {% block page_header %}
@@ -54,6 +54,6 @@
 
 {% endblock %}
 
-{% block scripts %}
+{% block extra_scripts %}
     <script src="{% static 'js/concert.js' %}"></script>
 {% endblock %}

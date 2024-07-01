@@ -2,8 +2,8 @@
 {% load static %} 
 
 
-{% block core_css %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/concert/concerts.css' %}">
+{% block extra_css %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/concert/concerts.css' %}">
 {% endblock %}
 {% block page_header %}
  <h2 class="text-center">Upcoming concerts!</h2>
@@ -16,9 +16,7 @@
       <p class='concert-main-info'> {{concert.city}} - {{concert.date}} </p>
       <a href='{% url "concert_detail" concert.id %}' class='concert-url'> View details</a>
     </div>  
-
-
-  {% endfor %}
+    {% endfor %}
 {% endblock %}
 
 
