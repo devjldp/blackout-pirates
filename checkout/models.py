@@ -35,10 +35,10 @@ class Order(models.Model):
         Update grand total each time a line item is added,
         accounting for delivery costs.
         """
-        self.order_total = self.concertitems.aggregate(Sum('lineitem_total'))[
+        self.order_total = self.concertitems.aggregate(Sum('concertitem_total'))[
             'concertitem_total__sum']
 
-        self.grand_total = self.order_total + self.delivery_cost
+        self.grand_total = self.order_total
         self.save()
 
     def save(self, *args, **kwargs):
@@ -54,7 +54,7 @@ class Order(models.Model):
         return self.order_number
 
 
-class OrderLineItem(models.Model):
+class OrderConcertItem(models.Model):
     order = models.ForeignKey(Order, null=False, blank=False,
                               on_delete=models.CASCADE, related_name='concertitems')
     concert = models.ForeignKey(
