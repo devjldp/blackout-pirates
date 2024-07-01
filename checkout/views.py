@@ -12,7 +12,7 @@ def checkout(request):
         return redirect(reverse('concerts'))
 
     order_form = OrderForm()
-    template = 'checkout/checkout.html'
+    template = 'a/a.html'
     context = {
         'order_form': order_form,
     }
