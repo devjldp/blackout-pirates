@@ -38,15 +38,30 @@
     </a>
     <nav id='nav-bar'>
         <ul id="menu">
+          {% if request.user.is_authenticated %}
+                {% if request.user.is_superuser %}
+                  <li>
+                    <a href="#" class='link-url text-pirate'>Dashboard</a>
+                  </li>
+                {% endif %}
+                <li>
+                  <a href="{% url 'profile' %}" class='link-url text-pirate'>My Profile</a>
+                </li>
+                <li>
+                  <a href="{% url 'account_logout' %}" class='link-url text-pirate'>Log Out</a>
+                </li>
+                <li>
+                  <a href= {% url "view_basket" %} class='link-url text-pirate'>Basket</a>
+                </li>
+          {% else %}
+            
              <li>
                 <a href="{% url 'account_signup' %}" class='link-url text-pirate'>Sign up</a>
             </li>
             <li>
                 <a href="{% url 'account_login' %}" class='link-url text-pirate'>Log In</a>
             </li>
-            <li>
-              <a href= {% url "view_basket" %} class='link-url text-pirate'>Basket</a>
-            </li>
+          {% endif %}
         </ul>
     </nav>
   </header>
