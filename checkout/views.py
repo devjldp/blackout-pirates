@@ -9,12 +9,16 @@ from basket.contexts import basket_contents
 
 import stripe
 
-# Create your views here.
-
 
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
+
+    basket = request.session.get('basket', {})
+    if not basket:
+        messages.error()
+        return redirect(reverse('concerts'))
+
     if request.method == "POST":
         basket = request.session.get('basket', {})
 
