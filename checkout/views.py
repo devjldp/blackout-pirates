@@ -51,16 +51,6 @@ def checkout(request):
                     print(order_concert_item)
                     order_concert_item.save()
 
-                    # if isinstance(item_data, int):
-                    # else:
-                    #     for size, quantity in item_data['items_by_size'].items():
-                    #         order_line_item = OrderLineItem(
-                    #             order=order,
-                    #             product=product,
-                    #             quantity=quantity,
-                    #             product_size=size,
-                    #         )
-                    #         order_line_item.save()
                 except Concert.DoesNotExist:
                     messages.error(request, (
                         "One of the concerts in your basket wasn't found in our database. "
