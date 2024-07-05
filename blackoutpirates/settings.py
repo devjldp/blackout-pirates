@@ -16,6 +16,8 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Define STATIC_ROOT para decirle a Django dónde recolectar los archivos estáticos
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # if env.py exists import env module
 if os.path.isfile('env.py'):
     import env
@@ -25,7 +27,7 @@ if os.path.isfile('env.py'):
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-l-twuiw7=eaxdw!wi^(qlo0$f7-2-m6-drv*g_=hcp$)&gz-=r'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
