@@ -2,72 +2,73 @@
 {% load static %}
 
 {% block extra_css %}
-  <link rel="stylesheet" type="text/css" href="{% static 'css/concert/details.css' %}" >
+  <link rel="stylesheet" type="text/css" href="{% static 'css/basket/basket.css' %}" >
 {% endblock %}
+
 {% block page_header %}
-  
+  <h2 class="text-center">Your basket</h2>
 {% endblock %}
 
 {% block content %}
+  {% if basket_tickets %}
+    <div id='basket-container'>
+        <table>
+          <thead>
+            <tr>
+              <th>concert</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Subtotal</th>
+            </tr>
+          </thead>
+          {% for ticket in basket_tickets %}
+            <tr>
+              <td>
+                <p>{{ ticket.city}}</p>
+              </td>
+              <td>
+                <p>{{  ticket.price }}</p>
+              </td>
+              <td> 
+                <form action="{% url 'update_basket' ticket.concert_id %}" method="POST" class="updated-form">
+                  {% csrf_token %}
+                  <div>
+                    <div class='quantity-container'>
+                      <div>
+                        <button class="modify-qty remove_quantity">-</button>
+                      </div>
+                      <input type="number" name="quantity" value='{{ ticket.quantity}}' 
+                      min='0' max='99' class='user_input'
+                      data-item_id='{{ticket.concert_id}}' 
+                      id="id_qty_{{ticket.concert_id}}">
+                      <div>
+                        <button class='modify-qty add_quantity'>+</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <a href="" id="update_{{ticket.concert_id}}" class="updated-link"><small>Update</small></a>
+              </td>
+              <td>
+                <p class="text-right">{{ ticket.subtotal }} </p>
+              </td>
+            </tr>    
+          {% endfor %}
+        </table>
+        <h2>Total: {{grand_total}}</h2>
 
-{% if basket_tickets %}
-  <div>
-      <table>
-        <thead>
-          <tr>
-            <th>concert</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Subtotal</th>
-          </tr>
-        </thead>
-        {% for ticket in basket_tickets %}
-        <tr>
-          <td>
-            <p>{{ ticket.city}}</p>
-          </td>
-          <td>
-            <p>{{  ticket.price }}</p>
-          </td>
-          <td> 
-            <form action="{% url 'update_basket' ticket.concert_id %}" method="POST" class="updated-form">
-              {% csrf_token %}
-              <div>
-                <div>
-                  <div>
-                    <button class="modify-qty remove_quantity">-</button>
-                  </div>
-                  <input type="number" name="quantity" value='{{ ticket.quantity}}' 
-                  min='0' max='99' class='user_input'
-                  data-item_id='{{ticket.concert_id}}' 
-                  id="id_qty_{{ticket.concert_id}}">
-                  <div>
-                    <button class='modify-qty add_quantity'>+</button>
-                  </div>
-                </div>
-              </div>
-            </form>
-            <a href="" id="update_{{ticket.concert_id}}" class="updated-link"><small>Update</small></a>
-          </td>
-          <td>
-            <p>{{ ticket.subtotal }} </p>
-          </td>
-        </tr>    
-        {% endfor %}
-      </table>
-      <h2>Total: {{grand_total}}</h2>
-      <a href="{% url 'concerts' %}" class= 'link-url'>Keep Shoping</a>
-      <a href="{% url 'checkout' %}" class= 'link-url'>Check Out</a>
+        <div>
+          <a href="{% url 'concerts' %}" class= 'link-url'>Keep Shoping</a>
+          <a href="{% url 'checkout' %}" class= 'link-url'>Check Out</a>
+        </div>
     </div> 
-    {% else %}
+  {% else %}
     <p>Your basket is empty!!</p>
     <a href='{% url "concerts" %}'> View concerts</a> 
-    {% endif %}
-    {% endblock %}
+  {% endif %}
+{% endblock %}
 
- <!-- Incluir el archivo JavaScript -->
-
- {% block extra_scripts %}
-    <script src="{% static 'js/basket.js' %}"></script>
-    <script src="{% static 'js/updateRemove.js' %}"></script>
+{% block extra_scripts %}
+  <script src="{% static 'js/basket.js' %}"></script>
+  <script src="{% static 'js/updateRemove.js' %}"></script>
 {% endblock %}
