@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from .models import Concert
 from .forms import ConcertForm
@@ -29,8 +30,13 @@ def concert_detail(request, concert_id):
 
     return render(request, 'concerts/concert_detail.html', context)
 
-
+@login_required
 def add_concert(request):
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry only admins can do that.')
+        return redirect(reverse('home'))
+    
+    
     if request.method == 'POST':
         form = ConcertForm(request.POST, request.FILES)
         if form.is_valid():
@@ -51,8 +57,12 @@ def add_concert(request):
     return render(request, template, context)
 
 
-
+@login_required
 def edit_concert(request, concert_id):
+    
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry only admins can do that.')
+        return redirect(reverse('home'))
     
     concert = get_object_or_404(Concert, pk = concert_id)
     if request.method == 'POST':
@@ -76,8 +86,13 @@ def edit_concert(request, concert_id):
     return render(request, template, context)
 
 
-
+@login_required
 def delete_concert(request, concert_id):
+    
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry only admins can do that.')
+        return redirect(reverse('home'))
+    
     concert = get_object_or_404(Concert, pk = concert_id)
     concert.delete()
     messages.success(request, 'Concert deleted!')
