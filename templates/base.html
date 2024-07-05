@@ -33,7 +33,7 @@
 <body> 
   <header id='main-header'>
     <!--logo and navigation-->
-    <a href={% url 'home' %} id='logo' >
+    <a href="{% url 'home' %}" id='logo' >
        <p class="text-rock"> BlackOut Pirates </p>
     </a>
     <nav id='nav-bar'>
@@ -51,7 +51,7 @@
                   <a href="{% url 'account_logout' %}" class='link-url text-pirate'>Log Out</a>
                 </li>
                 <li>
-                  <a href= {% url "view_basket" %} class='link-url text-pirate'>Basket</a>
+                  <a href= "{% url "view_basket" %}" class='link-url text-pirate'>Basket</a>
                 </li>
           {% else %}
             
@@ -74,7 +74,7 @@
 
   
   <footer>
-    <p>&copy; 2024 Blackout Pirates &#9760;. Todos los derechos reservados.</p>
+    <p>&copy; 2024 Blackout Pirates &#9760;. All rights reserved.</p>
   </footer>
 
   {% block extra_scripts %}

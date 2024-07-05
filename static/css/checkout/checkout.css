@@ -24,3 +24,8 @@
 .stripe-style-input::placeholder {
     color: #aab7c4;
 }
+
+#form-container{
+  width: 50%;
+  margin: auto;
+}

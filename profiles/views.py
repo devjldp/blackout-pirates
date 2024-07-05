@@ -32,7 +32,7 @@ def profile(request):
         'form': form,
         'orders': orders,
     }
-    print(orders)
+    # print(orders)
     return render(request, template, context)
 
 
