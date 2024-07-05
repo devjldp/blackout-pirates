@@ -36,7 +36,7 @@ def add_concert(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully added concert!')
-            return redirect(reverse('add_product'))
+            return redirect(reverse('add_concert'))
         else:
             messages.error(request, 'Failed to add concert. Please ensure the form is valid')
     else:

@@ -41,7 +41,7 @@
           {% if request.user.is_authenticated %}
                 {% if request.user.is_superuser %}
                   <li>
-                    <a href="#" class='link-url text-pirate'>Dashboard</a>
+                    <a href="{% url 'add_concert' %}" class='link-url text-pirate'>Dashboard</a>
                   </li>
                 {% endif %}
                 <li>
