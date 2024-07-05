@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+  <h2>Concert Management</h2>
+  <h2>Add a new concert</h2>
+  <form method="POST" action="" class="form mb-2">
+    {% csrf_token %}
+    {{form|crispy}}
+    <div>
+      <a href="{% url 'concerts' %}">Cancel</a>
+      <button type='submit' >Add Concert</button>
+    </div>
+
+  </form>
+
+{% endblock %}
