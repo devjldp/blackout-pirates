@@ -55,10 +55,18 @@ def add_concert(request):
 def edit_concert(request, concert_id):
     
     concert = get_object_or_404(Concert, pk = concert_id)
-    form = ConcertForm(instance=concert)
-    
-    messages.info(request, f'You are editing {concert.city}')
-    
+    if request.method == 'POST':
+        form = ConcertForm(request.POST, request.FILES, instance = concert)
+        if form.is_valid():
+            form.save()
+            messages.success(request, ' Successfully updated product!')
+            return redirect(reverse('concert_detail', args=[concert.id]))
+        else:
+            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+    else:
+        form = ConcertForm(instance=concert)
+        messages.info(request, f'You are editing the concert for {concert.city}')
+        
     template = 'concerts/edit_concert.html'
     context = {
         'form': form,
