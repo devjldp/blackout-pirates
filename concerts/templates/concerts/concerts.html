@@ -15,7 +15,17 @@
     <div class='concert-container'>
       <p class='concert-main-info'> {{concert.city}} - {{concert.date}} </p>
       <a href='{% url "concert_detail" concert.id %}' class='concert-url'> View details</a>
-    </div>  
+    </div>
+    {% if request.user.is_superuser %}
+      <div>
+        <small>
+          <a href="{% url 'edit_concert' concert.id %}">Edit concert</a>
+        </small>
+        <small>
+          <a class='text-danger' href="{% url 'delete_concert' concert.id %}">Delete concert</a>
+        </small>
+      </div>
+    {% endif %}
     {% endfor %}
 {% endblock %}
 
