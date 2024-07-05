@@ -15,7 +15,7 @@
 
 {% block content %}
     <h2>Order Form: </h2>
-    <div id='form-container'>
+    <div id='form-container' class="half">
         <form action="{% url 'checkout' %}" method="POST" id='payment-form'>
             {% csrf_token %}
             {% comment %} Details field  {% endcomment %}
@@ -51,24 +51,24 @@
             <fieldset class="px-3">
                 <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
                 <!-- A Stripe card element will go here -->
-                <div class="mb-3" id="card-element"></div>
+                <div class="mb-3" id="card-element" aria-label="Credit or debit card details input"></div>
 
                 <!-- Used to display form errors -->
                 <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
             </fieldset>
 
             {% comment %} button to pay  {% endcomment %}
-            <div class="submit-button text-right mt-5 mb-2">                    
+            <div class="submit-button text-right mt-5 mb-2 text-white">                    
                 <a href="{% url 'view_basket' %}" class="btn btn-outline-black rounded-0">
                     <span class="icon">
-                        <i class="fas fa-chevron-left"></i>
+                        <i class="fas fa-chevron-left text-white"></i>
                     </span>
-                    <span class="font-weight-bold">Adjust Bag</span>
+                    <span class="font-weight-bold text-white">Adjust Bag</span>
                 </a>
                 <button id="submit-button" class="btn btn-black rounded-0">
-                    <span class="font-weight-bold">Complete Order</span>
+                    <span class="font-weight-bold text-white">Complete Order</span>
                     <span class="icon">
-                        <i class="fas fa-lock"></i>
+                        <i class="fas fa-lock text-white" ></i>
                     </span>
                 </button>
                 <p class="small text-danger my-0">
