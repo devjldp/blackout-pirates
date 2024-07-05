@@ -10,8 +10,14 @@ class ConcertForm(forms.ModelForm):
   def __init__(self, *args, **kwargs):  
     super().__init__(*args, **kwargs)
     concerts = Concert.objects.all()
-    friendly_names = [(concert.id, concert.get_friendly_name()) for concert in concerts]
+    
+    placeholders = {
+            'city': 'City',
+            'date': 'Date',
+            'price': 'Price £',
+        }
 
-    self.fields['category'].choices = friendly_names
     for field_name, field in self.fields.items():
+      if field_name in placeholders:
+        field.widget.attrs['placeholder'] = placeholders[field_name]
       field.widget.attrs['class'] = 'border-black rounded-0'
