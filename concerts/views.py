@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.contrib import messages
 
 from .models import Concert
 from .forms import ConcertForm
@@ -30,10 +31,21 @@ def concert_detail(request, concert_id):
 
 
 def add_concert(request):
-    form = ConcertForm()
-    template= 'products/add_product'
+    if request.method == 'POST':
+        form = ConcertForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added concert!')
+            return redirect(reverse('add_product'))
+        else:
+            messages.error(request, 'Failed to add concert. Please ensure the form is valid')
+    else:
+        form = ConcertForm()
+    
+    template= 'concerts/add_concert.html'
     context = {
         'form': form
     }
     
+    print(context)
     return render(request, template, context)
