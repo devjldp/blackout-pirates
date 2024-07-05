@@ -1,3 +1,12 @@
+#form-container, #payment-form{
+  width: 50%;
+  margin: auto;
+}
+
+.half{
+  width: 50%;
+}
+
 .StripeElement,
 .stripe-style-input {
   box-sizing: border-box;
@@ -25,7 +34,3 @@
     color: #aab7c4;
 }
 
-#form-container{
-  width: 50%;
-  margin: auto;
-}
