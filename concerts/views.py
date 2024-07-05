@@ -49,3 +49,20 @@ def add_concert(request):
     
     print(context)
     return render(request, template, context)
+
+
+
+def edit_concert(request, concert_id):
+    
+    concert = get_object_or_404(Concert, pk = concert_id)
+    form = ConcertForm(instance=concert)
+    
+    messages.info(request, f'You are editing {concert.city}')
+    
+    template = 'concerts/edit_concert.html'
+    context = {
+        'form': form,
+        'concert': concert
+    }
+    
+    return render(request, template, context)
