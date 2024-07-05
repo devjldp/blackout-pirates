@@ -212,3 +212,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STRIPE_CURRENCY = 'usd'
 STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY')
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
+
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'
