@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 
 from .models import Concert
+from .forms import ConcertForm
 
 
 # Create your views here.
@@ -26,3 +27,13 @@ def concert_detail(request, concert_id):
     }
 
     return render(request, 'concerts/concert_detail.html', context)
+
+
+def add_concert(request):
+    form = ConcertForm()
+    template= 'products/add_product'
+    context = {
+        'form': form
+    }
+    
+    return render(request, template, context)
