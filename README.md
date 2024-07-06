@@ -1,7 +1,6 @@
 # Blackout Pirates
 
-Blackout Pirates is a fictional e-commerce site that offers ticket purchasing 
-services for concerts of the fictional rock band Blackout Pirates.
+Blackout Pirates is a fictional e-commerce site that offers ticket-purchasing services for concerts of the fictional rock band Blackout Pirates.
 
 Users have the option to register before completing their ticket purchase.
 
@@ -31,14 +30,41 @@ The document used for user stories can be found at: [blackoutStories.xlsx](docum
 - **Edit a concert**
 - **Delete a concert**
 - **Authentication features:** All handled by Django's AllAuth app.
-- **Basket**
+- **Buy a ticket**
+- **Update ticket quantity**
+- **View user basket**
 - **Checkout**
 
-### Navigation Bars
+### Stories Testing
 
-![Navigation Bar I](documentation/images/features1.jpg)
+In the following document, both the user stories and admin stories are explained in more detail.
 
-![Navigation Bar II](documentation/images/features2.jpg)
+[Stories](Stories.md)
+
+
+
+## Design
+The design has opted for a sober and simple approach.
+
+### Wireframes
+
+![addConcert](documentation/images/wireframes/addConcert.jpg)
+![concerts](documentation/images/wireframes/concerts.jpg)
+![checkout](documentation/images/wireframes/checkout.jpg)
+
+### Colors
+
+* The main color is black, used as the background color.  
+* In contrast, white in the shade #fafafa is used for text.   
+* An orange color in the shade RGB (227, 92, 30) is used for links.
+
+### Fonts
+The following fonts have been imported from Google Fonts:
+
+* Rock Salt
+* Pirata One
+
+These fonts are primarily used in links.
 
 ## Technologies and Languages
 
@@ -71,11 +97,62 @@ The document used for user stories can be found at: [blackoutStories.xlsx](docum
 - [GitHub](https://github.com/): Storing code for the project.
 - [VS Code](https://code.visualstudio.com/): IDE used for development.
 - [Figma](https://www.figma.com/): Used to create wireframes.
-- [Logo.com](https://logo.com/): Used to create the logo.
-- [Lucidchart](https://www.lucidchart.com/pages/): For ERD creation.
 
-[Back to main navigation](#contents)
 
 ## Testing
 
-For all testing, please refer to [TESTING.md](TESTING.md).
+Due to the lack of time to complete this project, and since I have already performed the necessary checks for HTML, CSS, and JavaScript in the previous projects delivered, I have focused on conducting automated tests for this project. Given the time constraints, the tests have only been conducted for the concerts app.
+
+
+### Manual testing
+
+The manual testing cases can be found in the following file.
+
+[manualTesting.xlsx](documentation/manualTesting.xlsx)
+
+### Automated testing
+
+A total of two test classes and seven test cases have been created.
+
+I have written tests for the form, for which I created a class named **ConcertFormTest** with the goal of testing the functionality of the ConcertForm.
+
+First, we create the data needed for the test.
+
+![Data test](documentation/images/testing/test1.jpg)
+
+Within this class, we have the following test cases:
+
+* **test_form_fields_placeholder:** Verify that the placeholders for the form fields are correct.
+* **test_form_valid_data:** Test that the form is valid when correct data is provided.
+* **test_form_invalid_data:** Test that the form is invalid when incorrect data is provided.
+
+![Test cases I](documentation/images/testing/test2.jpg)
+![Test cases II](documentation/images/testing/test3.jpg)
+---  
+Additionally, tests have been conducted for the views. 
+The class **TestViews** aims to test various views related to concerts.
+
+As with the previous case, the necessary data has been created to conduct the different tests.
+![Data test](documentation/images/testing/test1.2.jpg)
+
+Within this class, we have the following test cases:
+
+* **test_all_concerts:** Verify that the all_concerts view returns a 200 status code (success) and uses the correct template concerts/concerts.html.
+* **test_concert_detail:** Verify that the concert_detail view returns a 200 status code and uses the correct template concerts/concert_detail.html.
+* **test_add_concert_user:** Verify that a regular user is redirected to the main page when attempting to access the add_concert view.
+* **test_superuser_access:** Verify that a superuser can access the add_concert view without being redirected. 
+
+![Test cases III](documentation/images/testing/test2.2.jpg)
+![Test cases IV](documentation/images/testing/test3.2.jpg)
+
+Once the environment and test cases were prepared, the tests were executed, and as shown in the following image, all tests were successful.
+
+![Test results](documentation/images/testing/automatedTest.jpg)
+
+## Deployment
+
+The site was deployed to Heroku.
+
+The link to the live website is here: [Blackout Pirate]()
+
+The code can be found on GitHub: [Blackout Pirate](https://github.com/devjldp/blackout-pirates)
