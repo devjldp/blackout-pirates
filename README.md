@@ -1,5 +1,16 @@
 # Blackout Pirates
 
+![MainImage](static/images/landingPage.jpg)
+
+[Blackout Pirates](https://blackout-pirates-2d39b9c2dbe1.herokuapp.com/)
+
+### Note:
+
+**Due to limited time for personal and work reasons, this project is a first version of the original idea. Likewise, because I have used both my work and personal laptops and PCs, at times I have made commits to GitHub from different accounts. I can demonstrate that all the GitHub accounts belong to me and I am available to provide any necessary verification or additional information.**
+
+
+
+
 Blackout Pirates is a fictional e-commerce site that offers ticket-purchasing services for concerts of the fictional rock band Blackout Pirates.
 
 Users have the option to register before completing their ticket purchase.
@@ -152,7 +163,31 @@ Once the environment and test cases were prepared, the tests were executed, and 
 ## Deployment
 
 The site was deployed to Heroku.
+* For the deployment process, the following variables were created  
+![Variables](documentation/images/deployment/variables.jpg)
 
-The link to the live website is here: [Blackout Pirate]()
+* Add the Heroku hostname in your 'ALLOWED_HOSTS' in your setings.py file.
+* Make sure DEBUG=False, your requirements.txt, file storage, and Procfile are set up, then you can push to GitHub.
+* Go to the deploy tab and select a deployment method.
+* Search for your GitHub repository and connect it. Your deploy settings should look like this but you can select either automatic or manual deployment.
+
+![Settings](documentation/images/deployment/settings.jpg)
+
+
+The link to the live website is here: [Blackout Pirate](https://blackout-pirates-2d39b9c2dbe1.herokuapp.com/)
 
 The code can be found on GitHub: [Blackout Pirate](https://github.com/devjldp/blackout-pirates)
+
+
+## Credit
+### Images
+
+The only image used was generated using an AI. [Image generator](https://create.microsoft.com/es-es/features/ai-image-generator)
+
+
+### Inspiration
+
+The inspiration for this project was the boutique ado project from Code Insitute. I tried to follow the steps and understand the methodology and fundamentals of Django.
+
+### Acknowledgement of support
+I would like to thank the entire team at Code Institute for the support received during this year.
