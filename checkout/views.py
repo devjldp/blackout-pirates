@@ -13,6 +13,16 @@ import stripe
 
 
 def checkout(request):
+    """
+    Handle the checkout process, including form handling and Stripe payment processing.
+
+    If the request method is POST, process the order form and create the order and order items.
+    If the request method is GET, prepare the order form and Stripe payment intent.
+
+    Args:
+        request: The HTTP request object.
+
+    """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -113,7 +123,14 @@ def checkout(request):
 
 def checkout_success(request, order_number):
     """
-    Handle successful checkouts
+    Handle successful checkouts.
+
+    Attach the user's profile to the order and save user information if requested.
+    Clear the basket and display a success message.
+
+    Args:
+        request: The HTTP request object.
+        order_number: The order number of the successfully processed order.
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
