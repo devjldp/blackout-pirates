@@ -49,8 +49,8 @@
 </div>
 {% if request.user.is_superuser %}
   <div>
-    <a href="">Edit concert</a>
-    <a href="">Delete concert</a>
+    <a href="{% url 'edit_concert' concert.id %}">Edit concert</a>
+    <a href="{% url 'delete_concert' concert.id %}">Delete concert</a>
   </div>
 {% endif %}
   <a href="{% url 'concerts' %}" class= 'link-url'>Go back</a>
